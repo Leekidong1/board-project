@@ -25,7 +25,7 @@ import java.util.Set;
 })
 @EntityListeners(AuditingEntityListener.class) // JpaConfig.auditorAware 이용하려면 꼭 추가해야함.
 @Entity
-public class Article {
+public class Article extends AuditingFields {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,11 +38,6 @@ public class Article {
     @OrderBy("id")
     @OneToMany(mappedBy = "article", cascade = CascadeType.ALL) // Article과 양방향 바인딩. cascade는 게시글 삭제시 댓글도 삭제되는 기능이 있음.
     private  final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-    @CreatedDate @Column(nullable = false) private LocalDateTime regDate;
-    @CreatedBy @Column(nullable = false, length = 100) private String regUser;
-    @LastModifiedDate @Column(nullable = false) private LocalDateTime modDate;
-    @LastModifiedBy @Column(nullable = false, length = 100) private String modUser;
 
     protected Article() {}
 
