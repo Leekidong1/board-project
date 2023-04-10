@@ -1,7 +1,6 @@
 package com.lkd.www.repository;
 
 import com.lkd.www.domain.ArticleComment;
-import com.lkd.www.domain.QArticle;
 import com.lkd.www.domain.QArticleComment;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.StringExpression;
